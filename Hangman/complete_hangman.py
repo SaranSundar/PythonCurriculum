@@ -142,14 +142,13 @@ def get_one_valid_letter():
         letter = letter.strip().lower()
         if len(letter) <= 0 or len(letter) > 1:
             print("Letter must be of length 1")
-        else:
-            if letter.isalpha():
-                if letter in correctly_guessed_letters or letter in incorrectly_guessed_letters:
-                    print("You have already guessed the letter " + letter + ", please try again")
-                else:
-                    is_letter_valid = True
+        elif letter.isalpha():
+            if letter in correctly_guessed_letters or letter in incorrectly_guessed_letters:
+                print("You have already guessed the letter " + letter + ", please try again")
             else:
-                print("Letter must be (a-z)")
+                is_letter_valid = True
+        else:
+            print("Letter must be (a-z)")
 
     return letter
 
