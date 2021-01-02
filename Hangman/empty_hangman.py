@@ -27,6 +27,11 @@ def choose_random_word():
     pass
 
 
+def draw_word():
+    """Will print out the word with dashes for letters that haven't been guessed yet"""
+    pass
+
+
 def draw_hangman():
     """Will print out the hangman drawing based on the number of lives left"""
     pass
