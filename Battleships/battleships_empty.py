@@ -3,6 +3,7 @@ import time
 
 """
     -------BATTLESHIPS-------
+    Pre-reqs: Loops, Strings, Arrays, 2D Arrays, Global Variables, Methods
     How it will work:
     1. A 10x10 grid will have 8 ships of variable length randomly placed about
     2. You will have 50 bullets to take down the ships that are placed down
@@ -60,7 +61,7 @@ def try_to_place_ship_on_grid(row, col, direction, length):
 
 
 def create_grid():
-    """Will create a 15x15 grid and randomly place down ships
+    """Will create a 10x10 grid and randomly place down ships
        of different sizes in different directions.
        Has no Return but will use try_to_place_ship_on_grid.
     """

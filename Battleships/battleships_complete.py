@@ -25,7 +25,7 @@ grid = [[]]
 # Global variable for grid size
 grid_size = 10
 # Global variable for number of ships to place
-num_of_ships = 8
+num_of_ships = 2
 # Global variable for bullets left
 bullets_left = 50
 # Global variable for game over
@@ -86,7 +86,7 @@ def try_to_place_ship_on_grid(row, col, direction, length):
 
 
 def create_grid():
-    """Will create a 15x15 grid and randomly place down ships
+    """Will create a 10x10 grid and randomly place down ships
        of different sizes in different directions"""
     global grid
     global grid_size
@@ -125,6 +125,7 @@ def print_grid():
     debug_mode = True
 
     alphabet = alphabet[0: len(grid) + 1]
+
     for row in range(len(grid)):
         print(alphabet[row], end=") ")
         for col in range(len(grid[row])):
