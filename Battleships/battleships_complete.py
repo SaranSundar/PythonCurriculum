@@ -39,6 +39,7 @@ alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
+    """Will check the row or column to see if it is safe to place a ship there"""
     global grid
     global ship_positions
 
@@ -57,6 +58,9 @@ def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
 
 
 def try_to_place_ship_on_grid(row, col, direction, length):
+    """Based on direction will call helper method to try and place a ship on the grid"""
+    global grid_size
+
     start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
     if direction == "left":
         if col - length < 0:
@@ -114,15 +118,25 @@ def create_grid():
 
 
 def print_grid():
+    """Will print the grid with rows A-J and columns 0-9"""
     global grid
     global alphabet
+
+    debug_mode = True
 
     alphabet = alphabet[0: len(grid) + 1]
     for row in range(len(grid)):
         print(alphabet[row], end=") ")
         for col in range(len(grid[row])):
-            print(grid[row][col], end=" ")
+            if grid[row][col] == "O":
+                if debug_mode:
+                    print("O", end=" ")
+                else:
+                    print(".", end=" ")
+            else:
+                print(grid[row][col], end=" ")
         print("")
+
     print("  ", end=" ")
     for i in range(len(grid[0])):
         print(str(i), end=" ")
@@ -130,7 +144,9 @@ def print_grid():
 
 
 def accept_valid_bullet_placement():
+    """Will get valid row and column to place bullet shot"""
     global alphabet
+    global grid
 
     is_valid_placement = False
     row = -1
@@ -164,6 +180,7 @@ def accept_valid_bullet_placement():
 
 
 def check_for_ship_sunk(row, col):
+    """If all parts of a shit have been shot it is sunk and we later increment ships sunk"""
     global ship_positions
     global grid
 
@@ -182,6 +199,7 @@ def check_for_ship_sunk(row, col):
 
 
 def shoot_bullet():
+    """Updates grid and ships based on where the bullet was shot"""
     global grid
     global num_of_ships_sunk
     global bullets_left
@@ -206,6 +224,7 @@ def shoot_bullet():
 
 
 def check_for_game_over():
+    """If all ships have been sunk or we run out of bullets its game over"""
     global num_of_ships_sunk
     global num_of_ships
     global bullets_left
@@ -220,6 +239,7 @@ def check_for_game_over():
 
 
 def main():
+    """Main entry point of application that runs the game loop"""
     global game_over
 
     print("-----Welcome to Battleships-----")
@@ -238,4 +258,5 @@ def main():
 
 
 if __name__ == '__main__':
+    """Will only be called when program is run from terminal or an IDE like PyCharms"""
     main()
