@@ -3,11 +3,20 @@ import os
 
 screen: turtle.Screen
 pencil: turtle.Turtle
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 800
+ANIMATION_SPEED = 0
 
 
 def create_screen():
     global screen
+    global SCREEN_WIDTH
+    global SCREEN_HEIGHT
+
     screen = turtle.Screen()
+    screen.setup(SCREEN_WIDTH, SCREEN_HEIGHT)
+    screen.cv._rootwindow.resizable(False, False)
+    # turtle.screensize(SCREEN_WIDTH, SCREEN_HEIGHT, "white")
     # https://trinket.io/docs/colors - find colors for turtle or just use r,g,b values
     screen.bgcolor("white")
     screen.onscreenclick(print_mouse_click_coordinates)
@@ -24,14 +33,32 @@ def print_mouse_click_coordinates(x, y):
     draw_circle(x, y, 2, should_fill=True)
 
 
+def draw_grid():
+    global pencil
+    global SCREEN_WIDTH
+    global SCREEN_HEIGHT
+
+    spacing = 50
+
+    for r in range(int(SCREEN_HEIGHT / spacing)):
+        draw_polygon([(-SCREEN_WIDTH / 2, (r * spacing) - SCREEN_HEIGHT / 2),
+                      (SCREEN_WIDTH / 2, (r * spacing) - SCREEN_HEIGHT / 2)])
+    for c in range(int(SCREEN_WIDTH / spacing)):
+        draw_polygon([(((c * spacing) - SCREEN_WIDTH / 2), SCREEN_HEIGHT / 2),
+                      (((c * spacing) - SCREEN_WIDTH / 2), -SCREEN_HEIGHT / 2)])
+
+
 def create_pencil():
     global pencil
+    global ANIMATION_SPEED
+
     pencil = turtle.Turtle()
     # https://trinket.io/docs/colors - find colors for turtle or just use r,g,b values
     pencil.color("black")
     pencil.shape("arrow")
     pencil.pensize(1)
-    pencil.speed(0)
+    pencil.speed(ANIMATION_SPEED)
+    turtle.tracer(0, 0)
 
 
 def draw_polygon(coordinates, should_fill=False, pen_color="black", fill_color="black"):
@@ -86,11 +113,16 @@ def draw_avengers_logo():
     draw_circle(x=start_x, y=start_y, radius=outer_circle_radius, should_fill=True)
     draw_circle(x=start_x, y=start_y, radius=inner_circle_radius, should_fill=True, fill_color="white")
 
-    white_out_coordinates = [(-286.0, -293.0),
-                             (-235.0, -193.0),
-                             (-143.0, -255.0),
-                             (-193.0, -337.0)]
+    white_out_coordinates = [(-268.0, -255.0),
+                             (-247.0, -211.0),
+                             (-226.0, -226.0),
+                             (-249.0, -272.0)]
     draw_polygon(white_out_coordinates, should_fill=True, pen_color="white", fill_color="white")
+
+    draw_polygon([(-199.0, -313.0),
+                  (-177.0, -273.0),
+                  (-153.0, -264.0),
+                  (-181.0, -322.0)], should_fill=True, pen_color="white", fill_color="white")
 
     left_A_coordinates = [(-306.0, -374.0),
                           (122.0, 414.0),
@@ -124,9 +156,12 @@ def main():
     create_screen()
     create_pencil()
 
+    draw_grid()
     draw_avengers_logo()
 
     pencil.hideturtle()
+
+    turtle.update()
     # Needed to make sure the turtle window doesn't close after the drawing is finished
     turtle.done()
 
