@@ -3,6 +3,7 @@ import time
 
 """
     -------BATTLESHIPS-------
+    Pre-reqs: Loops, Strings, Arrays, 2D Arrays, Global Variables, Methods
     How it will work:
     1. A 10x10 grid will have 8 ships of variable length randomly placed about
     2. You will have 50 bullets to take down the ships that are placed down
