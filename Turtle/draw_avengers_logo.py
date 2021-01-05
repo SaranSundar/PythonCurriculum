@@ -21,8 +21,9 @@ def create_screen():
     screen.bgcolor("white")
     screen.onscreenclick(print_mouse_click_coordinates)
 
-    # Shows all shapes available for pencil on line 26 - pencil.shape("arrow")
-    print(screen.getshapes())
+    # Shows all shapes available for pencil on line 59 - pencil.shape("arrow")
+    # ['arrow', 'blank', 'circle', 'classic', 'square', 'triangle', 'turtle']
+    # print(screen.getshapes())
 
     # Just a trick to be used on Mac OS only that makes sure turtle window is always in the foreground
     os.system('''/usr/bin/osascript -e 'tell app "Finder" to set frontmost of process "Python" to true' ''')
