@@ -1,0 +1,27 @@
+# Part 1 - Getting used to print statements
+print("Hello World!")
+print("The weather today is 70 degrees and sunny")
+print("My favorite colors are green and blue")
+print("2 + 2 = 4")
+print("This computer follows my commands!")
+# Practice - Print your favorite book, tv show, and favorite song
+print("I love Harry Potter!")
+print("The Big Bang is a funny show")
+print("Halsey has some awesome songs!")
+# Part 2 - Draw a plane and a dog
+print("    __!__")
+print("_____(_)_____")
+print("   !  !  !")
+print("")
+print("^..^      /")
+print("/_/\\_____/")
+print("  /\\   /\\")
+# Practice - Draw
+print("")
+print("   |")
+print(" .'|'.")
+print("/.'|\\ \\")
+print("| /|'.|")
+print(" \\ |\\/")
+print("  \\|/")
+print("   `")
