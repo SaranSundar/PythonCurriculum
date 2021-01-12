@@ -5,3 +5,4 @@ concern=something that interests you because it is important
 approach=move towards
 coast=the shore of a sea or ocean
 macoroni=a delicious food
+pizza=a delicious food
